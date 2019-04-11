@@ -1,21 +1,15 @@
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { MovieComponent } from './movie/movie.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'filmes', component: MovieComponent,
-  },
-  {
-    path: 'filmes/detalhes/:id', component: MovieDetailComponent,
-  },
+  { path: 'filmes', loadChildren: './movie/movie.module#MovieModule' },
+  { path: 'series', loadChildren: './serie/serie.module#SerieModule' },
   { path: '', pathMatch: 'full', redirectTo: 'filmes' },
   { path: '**', redirectTo: 'filmes' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: false })],
+  imports: [RouterModule.forRoot(routes,{useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

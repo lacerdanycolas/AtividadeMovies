@@ -1,4 +1,4 @@
-import { BaseService } from './base/base.service';
+import { BaseService } from '../services/base/base.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 

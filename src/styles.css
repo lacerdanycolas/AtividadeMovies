@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .card  {
-    border: 0px;
-    cursor: pointer;
+        cursor: pointer;
+}
+.card-header {
+    background: transparent;
 }

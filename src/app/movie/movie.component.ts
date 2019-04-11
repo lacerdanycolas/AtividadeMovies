@@ -1,4 +1,4 @@
-import { MovieService } from '../services/movie.service';
+import { MovieService } from './movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -23,7 +23,7 @@ export class MovieComponent implements OnInit {
   }
 
   goEdit(movie) {
-    console.log(movie)
+
     this._router.navigate(['filmes/detalhes', movie.id])
   }
 
