@@ -10,10 +10,10 @@ export class SerieService extends BaseService {
   }
 
   getDiscover() {
-    return this._httpClient.get(`${this.URL}discover/tv?api_key=${this.API_KEY}&language=pt-BR`)
+    return this._httpClient.get(`${this.URL}discover/tv?language=pt-BR`)
   }
 
   getById(id: string) {
-    return this._httpClient.get(`${this.URL}tv/${id}?api_key=${this.API_KEY}&language=pt-BR`)
+    return this._httpClient.get(`${this.URL}tv/${id}?language=pt-BR`)
   }
 }

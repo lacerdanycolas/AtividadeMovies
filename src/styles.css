@@ -7,3 +7,9 @@
 .card-header {
     background: transparent;
 }
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+
+}
