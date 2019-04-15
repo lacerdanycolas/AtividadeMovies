@@ -12,13 +12,16 @@ import { AccountGuard } from './guards/account.guard';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { LoginComponent } from './login/login.component';
+import { EditComponent } from './edit/edit.component';
+import { MovieService } from './movie/movie.service';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     AccountService,
     AccountGuard,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    MovieService
 
   ],
   bootstrap: [AppComponent]

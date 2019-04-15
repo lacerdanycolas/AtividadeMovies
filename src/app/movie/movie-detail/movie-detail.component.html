@@ -8,7 +8,14 @@
   <div class="col-12 col-md-7">
     <div class="card">
       <div class="card-header">
-        <h5 class="card-title">{{ movie?.title }} ({{ movie?.release_date | date: 'yyyy'}})</h5>
+        <div class="row"> 
+          <div class="col">
+              <h5 class="card-title">{{ movie?.title }} ({{ movie?.release_date | date: 'yyyy'}})</h5> &nbsp;
+          </div>
+          <div class="col-4">
+            <a [routerLink]="['/editar', movie.id]"><span class="btn btn-primary btn-sm float-right">Editar</span></a>
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <p class="card-title text-justify"><strong>Sinopse:</strong> {{ movie?.overview }}</p>

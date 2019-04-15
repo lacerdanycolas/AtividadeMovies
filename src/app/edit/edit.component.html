@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row">
+      <div class="col-12 col-md-4">
+       <div class="card">
+        <img class="card-img" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ object?.poster_path  }}" alt="">
+      </div>
+    </div>
+    &nbsp;
+    <div class="col-12 col-md-7">
+      <div class="card">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+         <div class="form-group">  
+          <div class="card-header">
+            <div class="row"> 
+              <div class="col">
+                <p><strong for="titulo">Título</strong></p>
+                <input type="text" formControlName="titulo" placeholder="Digite o titulo" [(ngModel)]="object.title"  class="form-control form-control-lg"><br>
+               
+                <p><strong for="dataLancamento">Data Lançamento</strong></p>
+                
+                  <div class="input-group">
+                      <input class="form-control form-control-lg" placeholder="yyyy-mm-dd" [(ngModel)]="model"
+                        formControlName="dataLancamento" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                       <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button">
+                          <i class="fa fa-calendar"></i>
+                       </button>
+                      </div>
+                  </div>
+
+                </div>
+
+                <div class="col-4">
+                  <button type="button" (click)="previousUrl()" class="btn btn-primary btn-sm float-right">Voltar</button>
+                </div> 
+
+               
+             </div>
+          </div>
+            <div class="card-body">
+                 <p><strong for="sinopse">Sinopse</strong></p>
+                  <textarea rows="4" cols="50" id="sinopse" [(ngModel)]="object.overview" formControlName="sinopse" placeholder="Digite a sinopse" class="form-control form-control-lg"
+                      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" >
+                  </textarea>
+                  <br>
+                  <div class="row">
+                    <div class="col-6">
+                        <p><strong>Gêneros:</strong> </p> 
+                    </div>
+                    <div class="col-6">
+                        <p><strong>Gêneros Selecionados:</strong> </p> 
+                    </div>
+
+                  </div>
+                   
+                    <div class="row">
+                        <div class="col-5">
+                            <select class="mdb-select colorful-select dropdown-primary md-form" multiple [(ngModel)]="selectedValueListAll"
+                            (ngModelChange)="onChangeAll($event)" formControlName="genresAll">
+                                <option value="" disabled selected>Escolha o genero..</option>
+                                <option *ngFor="let genero of listGenres" [ngValue]="genero">{{genero.name}}</option>
+                              </select>
+                        </div>
+                         <div class=col-1-center>
+                          <button (click)="addGenres()" >></button><br><br>
+                          <button (click)="removeGenres()" ><</button>
+
+                         </div>
+                      
+                         <div class="col-6 text-center">
+                             
+                            <select class="mdb-select colorful-select dropdown-primary md-form" multiple  [(ngModel)]="selectedValueOld"
+                            (ngModelChange)="onChangeOld($event)" formControlName="genresOld" >
+                                <option *ngFor="let genre of object.genres" [ngValue]="genre">{{genre.name}}</option>
+                              </select>
+                        </div>
+                    </div>
+                                    
+                    <br/>  <br/>
+                     <p><strong>Produtoras:</strong> </p>
+                      <div class="d-inline-block" *ngFor="let company of object.production_companies">
+                        <img src="https://image.tmdb.org/t/p/w50_and_h50_bestv2{{ company.logo_path }}" class="img-thumbnail"
+                          alt="">&nbsp;
+                      </div>
+                      <br><br>
+                    <div class="row">
+                      <div class="col-8">
+
+                      </div>
+                      <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-sm float-right">Salvar</button>
+                      </div>
+
+                    </div>
+                   
+              </div>     
+           </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

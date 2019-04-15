@@ -17,4 +17,8 @@ export class MovieService extends BaseService {
   getById(id: string) {
     return this._httpClient.get(`${this.URL}movie/${id}?language=pt-BR`)
   }
+
+  getGenres(){
+    return this._httpClient.get(`${this.URL}genre/movie/list?language=pt-BR`);
+  }
 }

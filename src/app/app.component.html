@@ -12,8 +12,15 @@
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/series']" (click)="navbarCollapsed = true">Series</a>
-      </li>
+      </li>  
     </ul>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+             <button class="btn btn-light" (click)="logout()">Logout</button>
+          </li>
+      </ul>
+    </div>
   </div>
 
 </header>

@@ -6,10 +6,12 @@ import { MovieRoutingModule } from './movie.routing.module';
 import { MovieService } from './movie.service';
 
 
+
 @NgModule({
   declarations: [
     MovieComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    
   ],
   imports: [
     CommonModule,
